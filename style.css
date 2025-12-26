@@ -1,0 +1,123 @@
+
+/* ====== Base ====== */
+* { box-sizing: border-box; }
+
+body{
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #102018;
+  min-height: 100vh;
+ background-image: url("images/גונגל.jpg");
+  background-size: cover;        /* התמונה מכסה את כל המסך */
+  background-position: center;   /* ממורכזת */
+  background-repeat: no-repeat;  /* לא חוזרת על עצמה */
+}
+
+/* ====== Header ====== */
+.header{
+  width: min(1050px, 92%);
+  margin: 0 auto;
+  padding: 28px 0 10px;
+  text-align: center;
+}
+
+.header h1{
+  margin: 0 0 8px;
+  font-size: 40px;
+  letter-spacing: 0.5px;
+  color: #0b2a1b;
+}
+
+.header p{
+  margin: 0;
+  opacity: 0.85;
+}
+
+/* ====== Grid ====== */
+.animals{
+  width: min(1050px, 92%);
+  margin: 0 auto;
+  padding: 18px 0 34px;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* ====== Cards ====== */
+.animal{
+  border: 1px solid rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.55);
+  border-radius: 18px;
+  padding: 12px;
+  cursor: pointer;
+  text-align: right;
+
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+}
+
+.animal:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.16);
+  background: rgba(255,255,255,0.68);
+}
+
+.animal:active{
+  transform: translateY(0px) scale(0.99);
+}
+
+/* אפקט כאשר נלחץ/הופעל ב-JS */
+.animal.active{
+  outline: 3px solid rgba(255, 45, 160, 0.35);
+}
+
+/* תמונה */
+.animal img{
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+}
+
+/* שם + מקש */
+.info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.name{
+  font-weight: 800;
+  font-size: 16px;
+  color: #0b2a1b;
+}
+
+.key{
+  font-weight: 900;
+  letter-spacing: 0.6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+
+  background: rgba(255, 45, 160, 0.14);
+  color: #b90063;
+  border: 1px solid rgba(255, 45, 160, 0.30);
+}
+
+/* ====== Footer ====== */
+.footer{
+  text-align: center;
+  padding: 6px 16px 20px;
+  opacity: 0.85;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 900px){
+  .animals{ grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 650px){
+  .animals{ grid-template-columns: repeat(2, 1fr); }
+  .header h1{ font-size: 34px; }
+}
